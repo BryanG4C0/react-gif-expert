@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AddCategory } from './components/AddCategory';
 
 /*
 cuando queremos almacenar información y cambiar el html, inmediatamente debemos pensar que necesitamos algun HOOK para mantener el estado
@@ -22,6 +23,7 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             {/* Input */}
+            <AddCategory/>
 
             {/* Listado de Gif */}
             <button onClick={onAddCategory}>Agregar</button>
