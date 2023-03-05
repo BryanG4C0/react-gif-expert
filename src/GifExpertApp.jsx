@@ -8,8 +8,9 @@ cuando queremos almacenar información y cambiar el html, inmediatamente debemos
 
 export const GifExpertApp = () => {
 
-    const onAddCategory = () => {
-        const newCategory = 'Valorant'
+    const onAddCategory = (newCategory) => {
+
+        console.log(newCategory);
         //setCategories([...categories, newCategory]);
         setCategories(cat => [...cat, newCategory]);
     };
@@ -22,7 +23,10 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             {/* Input */}
-            <AddCategory setCategories={setCategories} />
+            <AddCategory
+                // setCategories={setCategories}
+                onNewCategory={(newCategory) => { onAddCategory(newCategory) }}
+            />
 
             <ol>
                 {categories.map((category, index) => {
