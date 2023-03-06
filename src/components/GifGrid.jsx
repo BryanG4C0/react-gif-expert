@@ -1,10 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
 
 
 export const GifGrid = ({ category }) => {
+
+    const [images, setImages] = useState([]);
+
+    const getImages = async () => {
+        const images = await getGifs(category);        
+        setImages(images)
+    };
+
     useEffect(() => {
-        getGifs(category);
+        getImages(category);
     }, []);
 
     // No se debe colocar la ejecución de una función directamente en un componente por que se va a ejecutar n cantidad de veces
@@ -13,11 +21,13 @@ export const GifGrid = ({ category }) => {
     return (
         <>
             <h3>{category}</h3>
-            {/* {
-                gifs.map((gif) => (
-                    <p>{gif}</p>
-                ))
-            } */}
+            <ol>
+                {
+                    images.map(({ id, title }) => (
+                        <li key={id}>{title}</li>
+                    ))
+                }
+            </ol>            
         </>
     )
 }
