@@ -18,7 +18,7 @@ export const GifExpertApp = () => {
     };
 
     // Siempre tratar de inicializar el estado
-    const [categories, setCategories] = useState(['One punch ', 'Dragon ball']);
+    const [categories, setCategories] = useState(['One punch']);
 
     return (
         <>
