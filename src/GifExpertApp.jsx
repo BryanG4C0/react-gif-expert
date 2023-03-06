@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 /*
 cuando queremos almacenar información y cambiar el html, inmediatamente debemos pensar que necesitamos algun HOOK para mantener el estado
@@ -23,21 +24,19 @@ export const GifExpertApp = () => {
         <>
             <h1>GifExpertApp</h1>
 
-            {/* Input */}
             <AddCategory
-                // setCategories={setCategories}
                 onNewCategory={(newCategory) => { onAddCategory(newCategory) }}
             />
 
-            <ol>
-                {categories.map((category, index) => {
-                    return (
-                        <li key={index}>
-                            {category}
-                        </li>
-                    );
-                })}
-            </ol>
+            {
+                categories.map((category, index) =>
+                (
+                    <GifGrid
+                        key={category}
+                        category={category}
+                    />
+                ))
+            }
         </>
     )
 }
