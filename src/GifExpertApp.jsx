@@ -13,7 +13,7 @@ export const GifExpertApp = () => {
 
         if (categories.includes(newCategory)) return;        
         //setCategories([...categories, newCategory]);
-        setCategories(cat => [...cat, newCategory]);
+        setCategories(cat => [newCategory, ...cat]);
     };
 
     // Siempre tratar de inicializar el estado
@@ -28,7 +28,7 @@ export const GifExpertApp = () => {
             />
 
             {
-                categories.map((category, index) =>
+                categories.map((category) =>
                 (
                     <GifGrid
                         key={category}
